@@ -1,17 +1,16 @@
 #!/bin/sh 
+tar -xvf project.tar
+tar -xvf cuda-identify-T2.tar
+tar -xvf cuda-identify-T3.tar
+tar -jxf lonestargpu-2.0.tar.bz2
+unzip cub-1.7.4.zip -d ~
+cd lonestargpu-2.0
+ln -s ../cub-1.7.4 cub-1.7.4
+cd ~
+mv cuda-identify-T2/ ~/llvm/llvm/tools/clang/tools/extra/
+mv cuda-identify-T3/ ~/llvm/llvm/tools/clang/tools/extra/
 cd ~/llvm//llvm/tools/clang
-mkdir -p tools/extra/cuda-identify-t1
-echo 'add_subdirectory(cuda-identify-t1)' >> tools/extra/CMakeLists.txt
-touch tools/extra/cuda-identify-t1/CMakeLists.txt
-echo 'set(LLVM_LINK_COMPONENTS support)\n' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-echo 'add_clang_executable(cuda-identify-t1' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-echo '\tCudaIdentifyT1.cpp' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-echo '\t)' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-echo 'target_link_libraries(cuda-identify-t1' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-echo '\tclangTooling' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-echo '\tclangBasic' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-echo '\tclangASTMatchers' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-echo '\t)' >> tools/extra/cuda-identify-t1/CMakeLists.txt
-
+echo 'add_subdirectory(cuda-identify-T2)' >> tools/extra/CMakeLists.txt
+echo 'add_subdirectory(cuda-identify-T3)' >> tools/extra/CMakeLists.txt
 
 
