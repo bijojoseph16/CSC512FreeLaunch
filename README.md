@@ -6,4 +6,4 @@
 #### CudaIdentifyT3.cpp
 #### CudaIdentifyT4.cpp
 
-## finalpackage.tar contains all the files and tools required for the transformation.It has has the readme with instructions for commpilation and the system requirements
+finalpackage.tar contains all the files and tools required for the transformation.It has has the readme with instructions for commpilation and the system requirements
